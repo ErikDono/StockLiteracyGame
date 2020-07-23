@@ -1,3 +1,5 @@
 module.exports = {
-  Book: require("./book")
+  Ticker: require("./Stock"),
+  tickerPerformance: require("./Performance"),
+  User: require("./User")
 };
