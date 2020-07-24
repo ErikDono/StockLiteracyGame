@@ -1,5 +1,5 @@
 module.exports = {
-  Ticker: require("./Stock"),
-  tickerPerformance: require("./Performance"),
+  Stock: require("./Stock"),
+  Performance: require("./Performance"),
   User: require("./User")
 };
