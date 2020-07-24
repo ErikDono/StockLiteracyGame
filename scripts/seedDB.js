@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const db = require("../models");
-import ALGT from './ALGT'
-import BKNG from './BKNG'
+const ALGT = require('./ALGT');
+const BKNG = require('./BKNG');
 
 // This file empties the Books collection and inserts the books below
 
@@ -10,13 +10,13 @@ mongoose.connect(
   "mongodb://localhost/stocklit"
 );
 
-const tickersSeed = [
-  ALGT, BKNG
+const stocksSeed = [
+  { ALGT }, { BKNG }
 ];
 
-db.Book
+db.Stock
   .remove({})
-  .then(() => db.Book.collection.insertMany(bookSeed))
+  .then(() => db.Stock.collection.insertMany(stocksSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
