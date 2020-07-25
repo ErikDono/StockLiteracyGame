@@ -2,7 +2,7 @@ const router = require("express").Router();
 const stockController = require("../../controllers/stockController");
 
 // Matches with "/api/stock"
-router.route("/")
+router.route("/stocks")
   .get(stockController.findAll)
   .post(stockController.add);
 

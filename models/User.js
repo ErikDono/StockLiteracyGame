@@ -21,7 +21,7 @@ const UserSchema = new Schema({
     score: { type: Number, required: true, default: 0 }
 });
 
-UserSchema.pre(save, function (next) {
+UserSchema.pre("save", function (next) {
     var user = this;
 
     // only hash the password if it has been modified (or is new)
