@@ -2,6 +2,10 @@ const db = require("../models");
 
 // Defining methods for the userController
 module.exports = {
+  find: function (req,res){
+    db.User
+    .findOne(req.params.username)
+  },
   create: function (req, res) {
     db.User
       .create(req.body)
