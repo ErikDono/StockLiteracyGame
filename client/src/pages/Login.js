@@ -4,7 +4,6 @@ import {
     FormGroup, Label, Input,
     Button,
 } from 'reactstrap';
-import './App.css';
 
 class App extends Component {
     render() {
@@ -14,7 +13,7 @@ class App extends Component {
                 <Form className="form">
                     <Col>
                         <FormGroup>
-                            <Label>Email</Label>
+                            <Label>Username</Label>
                             <Input
                                 type="username"
                                 name="username"
