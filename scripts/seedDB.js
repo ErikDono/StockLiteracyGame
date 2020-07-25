@@ -14,6 +14,8 @@ const stocksSeed = [
   { ALGT }, { BKNG }
 ];
 
+const data = [{ symbol: 'ALGT', historical: ALGT },]
+
 db.Stock
   .remove({})
   .then(() => db.Stock.collection.insertMany(stocksSeed))

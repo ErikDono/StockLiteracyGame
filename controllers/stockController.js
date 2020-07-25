@@ -14,11 +14,11 @@ module.exports = {
             .then(dbStock => res.json(dbStock))
             .catch(err => res.status(422).json(err));
     },
-    update: function (req, res) {
-        db.Stock
-            .put({ _id: req.params.id })
-            .then(dbStock => dbStock.remove())
-            .then(dbStock => res.json(dbStock))
-            .catch(err => res.status(422).json(err));
-    }
+    // update: function (req, res) {
+    //     db.Stock
+    //         .put({ _id: req.params.id })
+    //         // .then(dbStock => dbStock.remove())
+    //         .then(dbStock => res.json(dbStock))
+    //         .catch(err => res.status(422).json(err));
+    // }
 }
