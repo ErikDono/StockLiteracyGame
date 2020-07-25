@@ -7,8 +7,8 @@ router.route("/stocks")
   .post(stockController.add);
 
 // Matches with "/api/stock/:id"
-router
-  .route("/:id")
-  .put(stockController.update)
+// router
+//   .route("/:id")
+//   .put(stockController.update)
 
 module.exports = router;
