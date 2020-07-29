@@ -1,4 +1,7 @@
 const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
+const saltRounds = 10;
+
 
 const Schema = mongoose.Schema;
 
@@ -22,33 +25,36 @@ const UserSchema = new Schema({
 });
 
 UserSchema.pre("save", function (next) {
+
     var user = this;
+    console.log(user)
 
     // only hash the password if it has been modified (or is new)
     if (!user.isModified('password')) return next();
+    console.log('password is modified');
 
     // generate a salt
-    bcrypt.genSalt(SALT_WORK_FACTOR, function (err, salt) {
+    bcrypt.genSalt(saltRounds, function (err, salt) {
         if (err) return next(err);
+        console.log('generated salt')
 
         // hash the password using our new salt
         bcrypt.hash(user.password, salt, function (err, hash) {
             if (err) return next(err);
+            console.log('hash password')
 
             // override the cleartext password with the hashed one
             user.password = hash;
-            next();
+            return next();
         });
     });
 
 
 });
 
-UserSchema.methods.comparePassword = function (candidatePassword, cb) {
-    bcrypt.compare(candidatePassword, this.password, function (err, isMatch) {
-        if (err) return cb(err);
-        cb(null, isMatch);
-    });
+//  Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
+UserSchema.methods.validPassword = function (password) {
+    return bcrypt.compareSync(password, this.password);
 };
 
 const User = mongoose.model("User", UserSchema);

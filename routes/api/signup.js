@@ -5,14 +5,14 @@ var LocalStrategy = require("passport-local").Strategy;
 
 
 
-router.post('/signup', passport.authenticate('jwt', { session: false }), function (req, res) {
-    User.create({
+router.post('/signup', passport.authenticate('local', { session: false }), function (req, res) {
+    User.save({
         username: req.user.username,
         password: req.user.password
     },
         function (err, users) {
             if (err) return next(err);
-            // console.log(users);
+            console.log(users);
             res.json(users);
         });
 
