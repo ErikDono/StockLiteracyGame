@@ -24,7 +24,7 @@ class Signup extends Component {
             password: this.state.password
         }
         API.signupUser(userData).then(res => {
-            // console.log(res)
+            console.log(res)
         })
     }
     render() {
