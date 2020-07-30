@@ -53,8 +53,14 @@ UserSchema.pre("save", function (next) {
 });
 
 //  Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
-UserSchema.methods.validPassword = function (password) {
-    return bcrypt.compareSync(password, this.password);
+// UserSchema.methods.validPassword = function (password) {
+//     return bcrypt.compareSync(password, this.password);
+// };
+UserSchema.methods.comparePassword = function (candidatePassword, cb) {
+    bcrypt.compare(candidatePassword, this.password, function (err, isMatch) {
+        if (err) return cb(err);
+        cb(null, isMatch);
+    });
 };
 
 const User = mongoose.model("User", UserSchema);

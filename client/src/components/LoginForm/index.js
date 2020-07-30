@@ -24,7 +24,19 @@ class Login extends Component {
             password: this.state.password
         }
         API.loginUser(userData).then(res => {
-            console.log(res)
+            console.log(res);
+            if (!res.data.errmsg) {
+                console.log('successful sign-in')
+                // this.setState({ //redirect to welcome page
+                //     redirectTo: '/stocks'
+                // })
+                window.location = "/stocks"
+            } else {
+                console.log('username already taken')
+            }
+        }).catch(error => {
+            console.log('login error: ')
+            console.log(error)
         })
     }
     render() {

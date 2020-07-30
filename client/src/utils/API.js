@@ -1,20 +1,22 @@
 import axios from "axios";
 
 export default {
-  // Gets all users
+  // Login user
   loginUser: function (userData) {
     console.log(userData)
     return axios.post("/api/login", userData);
   },
-  // Gets the user with the given id
-  getUser: function (id) {
-    return axios.get("/api/login/" + id);
-  },
-
+  // Signup user
   signupUser: function (userData) {
     console.log(userData)
     return axios.post("/api/signup", userData);
+  },
+
+  // Logout user
+  logoutUser: function () {
+    return axios.get("/api/logout")
   }
+
   // // Deletes the book with the given id
   // deleteBook: function(id) {
   //   return axios.delete("/api/books/" + id);
