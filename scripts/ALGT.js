@@ -1,8 +1,8 @@
 const ALGT = [
     {
         date: "2018-01-31T00:00:00.000Z",
-        month: 1,
         price: 159.25,
+        month: 1,
         performance: 0
     },
     {
