@@ -15,6 +15,11 @@ export default {
   // Logout user
   logoutUser: function () {
     return axios.get("/api/logout")
+  },
+
+  // To retrieve all stocks from db
+  getStocks: function () {
+    return axios.get("/api/stocks")
   }
 
   // // Deletes the book with the given id

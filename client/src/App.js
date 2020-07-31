@@ -9,7 +9,7 @@ import Signup from "./components/SignupForm";
 
 // Jason's edits for now: comment out all of returned JSX, render page 'Main' components working on
 // import them here:
-import Main from "./pages/Main";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
 
@@ -34,7 +34,7 @@ function App() {
 
 
     <>
-      <Main />
+      <Dashboard />
     </>
   );
 }
