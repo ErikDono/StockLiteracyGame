@@ -20,6 +20,14 @@ export default {
   // To retrieve all stocks from db
   getStocks: function () {
     return axios.get("/api/stocks")
+  },
+
+  buyStocks: function(){
+    return axios.get("api/stocks/:id")
+  },
+
+  submitStocks: function (){
+    return axios.put("api/stocks")
   }
 
   // // Deletes the book with the given id
