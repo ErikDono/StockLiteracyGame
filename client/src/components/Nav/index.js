@@ -1,10 +1,15 @@
 import React from "react";
+import { Badge } from 'reactstrap';
+import "./style.css";
 
 function Nav() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-primary navstyle">
       <a className="navbar-brand" href="/">
-        React Reading List
+        Stock Literacy Game
+      </a>
+      <a>
+        <Badge pill>Your Score:  $112</Badge>
       </a>
     </nav>
   );
