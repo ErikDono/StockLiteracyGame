@@ -14,7 +14,7 @@ router
 
 // Matches with "/api/stocks/buy/:id"
 router
-  .route("/buy/:id")
+  .route("/buy")
   .put(userController.update)
 
 module.exports = router;

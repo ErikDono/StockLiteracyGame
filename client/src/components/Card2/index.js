@@ -8,10 +8,14 @@ import "./style.css";
 
 
 const Card2 = (props) => {
+    const well = {
+        boxShadow: "3px 3px 3px #9E9E9E"
+    }
+
     return (
         <div>
-            <Card className="card2">
-                <CardHeader>Header</CardHeader>
+            <Card className="card2" style={well}>
+                {/* <CardHeader>Header</CardHeader> */}
                 <CardBody>
                     <CardTitle>Special Title Treatment</CardTitle>
                     <CardText>With supporting text below as a natural lead-in to additional content.</CardText>

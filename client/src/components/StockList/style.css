@@ -1,24 +1,33 @@
 .scrollable {
-height: 85vh;
+height: 80vh;
 overflow: scroll;
 }
 
 ::-webkit-scrollbar{
-    width: 25px;
+    width: 15px;
 }
 
 ::-webkit-scrollbar-track{
-border: 5px solid white;
+border: 2px solid white;
 box-shadow: inset 0 0 2.5px 2px rgba(0,0,0,0.5);
 }
 
 ::-webkit-scrollbar-thumb{
     background:linear-gradient(
         45deg,
-        grey,
+        rgb(117, 142, 165),
         rgb(0, 195, 255)
     );
     border-radius: 3px;
 }
 
 
+#buyBtn{
+font-size: 12px;
+margin-left: 2px;
+width: 50px;
+}
+
+#submitBtn{
+align-content: center;
+}

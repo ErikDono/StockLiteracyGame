@@ -22,12 +22,13 @@ export default {
     return axios.get("/api/stocks")
   },
 
-  buyStocks: function(){
+  buyStocks: function () {
     return axios.get("api/stocks/:id")
   },
 
-  submitStocks: function (){
-    return axios.put("api/stocks")
+  submitStocks: function (data) {
+    console.log(data);
+    return axios.put("/api/stocks/buy", data);
   }
 
   // // Deletes the book with the given id

@@ -15,27 +15,27 @@ function App() {
 
 
   return (
-    // <Router>
-    //   <div>
-    //     {/* <Nav /> */}
-    //     <Switch>
-    //       <Route exact path={["/", "/login"]}>
-    //         <Login />
-    //       </Route>
-    //       <Route exact path="/stocks">
-    //         <Stocks />
-    //       </Route>
-    //       <Route exact path="/signup">
-    //         <Signup />
-    //       </Route>
-    //     </Switch>
-    //   </div>
-    // </Router>
+    <Router>
+      <div>
+        {/* <Nav /> */}
+        <Switch>
+          <Route exact path={["/", "/login"]}>
+            <Login />
+          </Route>
+          <Route exact path="/dashboard">
+            <Dashboard />
+          </Route>
+          <Route exact path="/signup">
+            <Signup />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
 
 
-    <>
-      <Dashboard />
-    </>
+    // <>
+    //   <Dashboard />
+    // </>
   );
 }
 

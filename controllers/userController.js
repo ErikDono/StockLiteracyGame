@@ -14,15 +14,18 @@ module.exports = {
       .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
   },
+  // changed here
   update: function (req, res) {
+    console.log(req.body);
+    console.log(req.user);
     db.User
-      .findOneAndUpdate({ _id: req.params.userId }, { $push: { stocks: req.params.stockId } }, { new: true })
+      .findOneAndUpdate({ _id: req.user._id }, { $push: { stocks: req.body } }, { new: true })
       .then(dbUSer => res.json(dbUSer))
       .catch(err => res.status(422).json(err));
   },
   sell: function (req, res) {
     db.User
-      .findOneAndUpdate({ _id: req.params.userId }, { $pull: { stocks: req.params.stockId } }, { new: true })
+      .findOneAndUpdate({ _id: req.user._id }, { $pull: { stocks: req.params.stockId } }, { new: true })
       .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
   }
