@@ -29,6 +29,10 @@ export default {
   submitStocks: function (data) {
     console.log(data);
     return axios.put("/api/stocks/buy", data);
+  },
+
+  resetStocks: function () {
+    return axios.put("/api/stocks/sell");
   }
 
   // // Deletes the book with the given id

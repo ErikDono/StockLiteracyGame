@@ -29,7 +29,6 @@ const TJX = require("./stocks/TJX.json");
 const MGM = require("./stocks/MGM.json");
 const CHTR = require("./stocks/CHTR.json");
 const CTL = require("./stocks/CTL.json");
-const CBRE = require("./stocks/CBRE.json");
 const WELL = require("./stocks/WELL.json");
 const JNJ = require("./stocks/JNJ.json");
 const PFE = require("./stocks/PFE.json");
@@ -43,7 +42,7 @@ const AWK = require("./stocks/AWK.json");
 const dataSeed = [
     TSLA, NFLX, AMZN, AAPL, ADBE, ALGT, BKNG, CCL, DAL, EXPE,
     FDS, GOOGL, IBM, INTC, LUV, MSFT, RCL, TRV, WGO, NEM, SHW,
-    RTX, JCI, MET, AMP, XOM, PSX, TJX, MGM, CHTR, CTL, CBRE, WELL,
+    RTX, JCI, MET, AMP, XOM, PSX, TJX, MGM, CHTR, CTL, WELL,
     JNJ, PFE, PPL, AWK];
 
 
