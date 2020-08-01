@@ -16,16 +16,17 @@ module.exports = {
   },
   // changed here
   update: function (req, res) {
-    console.log(req.body);
-    console.log(req.user);
+    console.log("user controller update body" + req.body);
+    console.log("user controller update user" + req.user);
     db.User
       .findOneAndUpdate({ _id: req.user._id }, { $push: { stocks: req.body } }, { new: true })
       .then(dbUSer => res.json(dbUSer))
       .catch(err => res.status(422).json(err));
   },
+
   sell: function (req, res) {
     db.User
-      .findOneAndUpdate({ _id: req.user._id }, { $pull: { stocks: req.params.stockId } }, { new: true })
+      .findOneAndUpdate({ _id: req.user._id }, { stocks: [] }, { new: true })
       .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
   }

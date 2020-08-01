@@ -9,6 +9,8 @@ function StockList(props) {
 
   const [selectStock, setSelectStock] = useState([]);
 
+
+
   const onCheckboxBtnClick = (selected) => {
     const index = selectStock.indexOf(selected);
 
@@ -18,6 +20,7 @@ function StockList(props) {
       selectStock.splice(index, 1);
     }
     setSelectStock([...selectStock]);
+
 
   };
 
@@ -41,6 +44,16 @@ function StockList(props) {
     event.preventDefault();
     const stockIds = selectStock.map((stock) => ({ _id: stock._id }))
     API.submitStocks(stockIds)
+      .then((res) => console.log(res.data));
+  }
+
+
+
+  const clearStocks = (event) => {
+    event.preventDefault();
+    setSelectStock([]);
+
+    API.resetStocks()
       .then((res) => console.log(res.data));
   }
 
@@ -69,6 +82,7 @@ function StockList(props) {
         </ListGroup>
       </Col>
       <Button onClick={submitStocks}>Submit</Button>
+      <Button onClick={clearStocks}>Resest</Button>
     </>
   );
 

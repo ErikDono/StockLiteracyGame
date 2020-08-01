@@ -9,7 +9,7 @@ router.route("/")
 
 // Matches with "/api/stocks/sell/:id"
 router
-  .route("/sell/:id")
+  .route("/sell")
   .put(userController.sell)
 
 // Matches with "/api/stocks/buy/:id"
