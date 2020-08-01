@@ -30,7 +30,7 @@ class Login extends Component {
                 // this.setState({ //redirect to welcome page
                 //     redirectTo: '/stocks'
                 // })
-                window.location = "/stocks"
+                window.location = "/dashboard"
             } else {
                 console.log('username already taken')
             }

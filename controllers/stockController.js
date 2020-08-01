@@ -9,6 +9,7 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     findAll: function (req, res) {
+        console.log(req.user);
         db.Stock
             .find({})
             .then(dbStock => res.json(dbStock))

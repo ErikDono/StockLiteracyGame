@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const stockSchema = new Schema({
-  sector: { type: String },
+  // sector: { type: String },
   symbol: { type: String, required: true },
   description: {},
   historical: {

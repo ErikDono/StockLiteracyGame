@@ -9,7 +9,7 @@ function Nav() {
         Stock Literacy Game
       </a>
       <a>
-        <Badge pill>Your Score:  $112</Badge>
+        <Badge pill id="navBadge">Your Score:  $112</Badge>
       </a>
     </nav>
   );

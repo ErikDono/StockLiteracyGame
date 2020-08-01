@@ -4,30 +4,32 @@ var passport = require("../../config/passport");
 const { response } = require("express");
 var LocalStrategy = require("passport-local").Strategy;
 
-router.post('/login', function (req, res) {
-    User.findOne({
-        username: req.body.username
-    }, function (err, user) {
-        console.log("This is my: " + user)
-        if (err) throw err;
+router.post('/login', passport.authenticate("local"), function (req, res) {
+    console.log("Yay! You are logged in");
+    res.status(200).json({ sucess: true, msg: "Successfully loggen in!" })
+    // User.findOne({
+    //     username: req.body.username
+    // }, function (err, user) {
+    //     console.log("This is my: " + user)
+    //     if (err) throw err;
 
-        if (!user) {
-            res.status(401).send({ success: false, msg: 'Authentication failed. User not found.' });
-        } else {
-            console.log("++++GOT TO HERE++++");
-            // check if password matches
-            user.comparePassword(req.body.password, function (err, isMatch) {
-                console.log("Are we here????")
-                if (isMatch && !err) {
-                    console.log("Yay! You are logged in");
-                    res.status(200).json({ sucess: true, msg: "Successfully loggen in!" })
-                    // res.redirect('/stocks')
-                } else {
-                    res.status(401).send({ success: false, msg: 'Authentication failed. Wrong password.' });
-                }
-            });
-        }
-    });
+    //     if (!user) {
+    //         res.status(401).send({ success: false, msg: 'Authentication failed. User not found.' });
+    //     } else {
+    //         console.log("++++GOT TO HERE++++");
+    //         // check if password matches
+    //         user.comparePassword(req.body.password, function (err, isMatch) {
+    //             console.log("Are we here????")
+    //             if (isMatch && !err) {
+    //                 console.log("Yay! You are logged in");
+    //                 res.status(200).json({ sucess: true, msg: "Successfully loggen in!" })
+    //                 // res.redirect('/stocks')
+    //             } else {
+    //                 res.status(401).send({ success: false, msg: 'Authentication failed. Wrong password.' });
+    //             }
+    //         });
+    //     }
+    // });
 });
 
 router.post('/signup', function (req, res) {
