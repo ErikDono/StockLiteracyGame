@@ -6,9 +6,9 @@ import API from '../../utils/API';
 
 function StockList(props) {
 
+  const setUserStocks = props.setUserStocks;
 
   const [selectStock, setSelectStock] = useState([]);
-
 
 
   const onCheckboxBtnClick = (selected) => {
@@ -24,7 +24,7 @@ function StockList(props) {
 
   };
 
-  console.log(selectStock);
+  console.log("selectStock" + selectStock);
 
 
   // CSS for shadow effect on card
@@ -37,6 +37,14 @@ function StockList(props) {
     fontWeight: "550",
     textAlign: "center",
     fontSize: "15px",
+    backgroundColor: "opaque"
+  };
+
+  const listHeaderP = {
+    fontWeight: "550",
+    textAlign: "center",
+    fontSize: "12px",
+    textStyle: "italic",
     backgroundColor: "opaque"
   };
 
@@ -58,9 +66,12 @@ function StockList(props) {
   }
 
 
+
+
   return (
     <>
       <h2 style={listHeader}>STOCK LIST</h2>
+      <p style={listHeaderP}>Do your research, pick 5, and submit!</p>
       <Col className="scrollable">
         <ListGroup className="flex-column nav" style={well}>
           {props.stocks.map((stock) => (
@@ -75,14 +86,15 @@ function StockList(props) {
                   active={selectStock.includes(stock)}
                 >
                   Buy
-              </Button>
+                </Button>
               </ListGroupItem>
             </>
           ))}
         </ListGroup>
       </Col>
-      <Button onClick={submitStocks}>Submit</Button>
-      <Button onClick={clearStocks}>Resest</Button>
+      <Button id="submitBtn" onClick={submitStocks, setUserStocks} className="float" outline color="success">Submit</Button>
+      <Button id="resetBtn" onClick={clearStocks} className="float"
+        outline color="secondary">Reset</Button>
     </>
   );
 

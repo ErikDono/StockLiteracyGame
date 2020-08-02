@@ -3,8 +3,14 @@ import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 
 function NoMatch() {
+
+  const style1 = {
+    boxShadow: "3px 3px 3px #9E9E9E"
+  }
+
+
   return (
-    <Container fluid>
+    <Container fluid style={style1}>
       <Row>
         <Col size="md-12">
           <Jumbotron>
