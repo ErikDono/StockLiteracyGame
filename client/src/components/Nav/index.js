@@ -14,6 +14,7 @@ function Nav() {
         <Badge pill id="navBadge">Your Score:  $112</Badge>
       </a>
     </nav>
+    
   );
 }
 
