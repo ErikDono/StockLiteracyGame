@@ -6,8 +6,6 @@ import API from '../../utils/API';
 
 function StockList(props) {
 
-  const setUserStocks = props.setUserStocks;
-
   const [selectStock, setSelectStock] = useState([]);
 
 
@@ -20,11 +18,8 @@ function StockList(props) {
       selectStock.splice(index, 1);
     }
     setSelectStock([...selectStock]);
-
-
   };
 
-  console.log("selectStock" + selectStock);
 
 
   // CSS for shadow effect on card
@@ -50,7 +45,7 @@ function StockList(props) {
 
   const submitStocks = (event) => {
     event.preventDefault();
-    const stockIds = selectStock.map((stock) => ({ _id: stock._id }))
+    const stockIds = selectStock.map((stock) => ({ stock }))
     API.submitStocks(stockIds)
       .then((res) => console.log(res.data));
   }
@@ -92,7 +87,7 @@ function StockList(props) {
           ))}
         </ListGroup>
       </Col>
-      <Button id="submitBtn" onClick={submitStocks, setUserStocks} className="float" outline color="success">Submit</Button>
+      <Button id="submitBtn" onClick={submitStocks} className="float" outline color="success">Submit</Button>
       <Button id="resetBtn" onClick={clearStocks} className="float"
         outline color="secondary">Reset</Button>
     </>
