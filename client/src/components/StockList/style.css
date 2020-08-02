@@ -1,5 +1,5 @@
 .scrollable {
-height: 80vh;
+height: 72vh;
 overflow: scroll;
 }
 
@@ -28,6 +28,19 @@ margin-left: 2px;
 width: 50px;
 }
 
-#submitBtn{
-align-content: center;
-}
+
+#resetBtn{
+    margin: 2px;
+    position: absolute;
+    left: 0%;
+    -ms-transform: translate(50%);
+  transform: translate(50%);
+  }
+
+  #submitBtn{
+    margin: 2px;
+    position: absolute;
+    right: 30%;
+    -ms-transform: translate(50%);
+    transform: translate(50%);
+  }

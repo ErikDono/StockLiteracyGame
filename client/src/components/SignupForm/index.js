@@ -3,9 +3,10 @@ import API from '../../utils/API'
 import {
     Container, Col, Form,
     FormGroup, Label, Input,
-    Button,
+    Button
 } from 'reactstrap';
-import { Redirect } from "react-router-dom";
+import "./style.css"
+
 
 
 class Signup extends Component {
@@ -30,10 +31,6 @@ class Signup extends Component {
             if (!res.data.errmsg) {
                 console.log('successful signup')
                 window.location = "/dashboard"
-
-                // this.setState({ //redirect to welcome page
-                //     redirectTo: '/login'
-                // })
             } else {
                 console.log('username already taken')
             }
@@ -45,7 +42,7 @@ class Signup extends Component {
     }
     render() {
         return (
-            <Container className="App">
+            <Container id="signup" className="App">
                 <h2>Sign Up</h2>
                 <Form className="form">
                     <Col>

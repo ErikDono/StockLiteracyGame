@@ -3,7 +3,7 @@ import {
     Card, Button, CardHeader, CardFooter, CardBody,
     CardTitle, CardText
 } from 'reactstrap';
-import TrashBtn from "../TrashBtn";
+// import TrashBtn from "../TrashBtn";
 import "./style.css";
 
 
@@ -19,7 +19,6 @@ const Card1 = (props) => {
                 <CardBody>
                     <CardTitle>Special Title Treatment</CardTitle>
                     <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-                    <TrashBtn />
                 </CardBody>
             </Card>
         </div>

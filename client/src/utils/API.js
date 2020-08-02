@@ -35,6 +35,7 @@ export default {
     return axios.put("/api/stocks/sell");
   }
 
+
   // // Deletes the book with the given id
   // deleteBook: function(id) {
   //   return axios.delete("/api/books/" + id);
