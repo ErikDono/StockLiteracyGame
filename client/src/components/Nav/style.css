@@ -11,8 +11,7 @@
 #navBadge{
     background:linear-gradient(
         45deg,
-        /* rgb(144, 144, 145), */
         rgb(71, 179, 71),
-        white
+        rgb(238, 229, 229)
     );
 }

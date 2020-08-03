@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import { Col, ListGroup, ListGroupItem, Button } from 'reactstrap';
+import { Col, ListGroup, ListGroupItem, Button, Row, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import "./style.css";
 import API from '../../utils/API';
-
+import ScoreBadge from "../ScoreBadge";
 
 function StockList(props) {
 
   const [selectStock, setSelectStock] = useState([]);
-
 
   const onCheckboxBtnClick = (selected) => {
     const index = selectStock.indexOf(selected);
@@ -19,6 +18,27 @@ function StockList(props) {
     }
     setSelectStock([...selectStock]);
   };
+
+  // modal stuff
+
+
+  // const {
+  //   className
+  // } = props;
+
+
+  const [modal, setModal] = useState(false);
+
+  const toggle = (props) => {
+    console.log("TOGGLE:" + props);
+    setModal(!modal);
+  };
+
+
+
+
+
+
 
 
 
@@ -43,6 +63,8 @@ function StockList(props) {
     backgroundColor: "opaque"
   };
 
+
+  // Changed to take whole stock object rather than just the object id
   const submitStocks = (event) => {
     event.preventDefault();
     const stockIds = selectStock.map((stock) => ({ stock }))
@@ -60,6 +82,34 @@ function StockList(props) {
       .then((res) => console.log(res.data));
   }
 
+  // Jason trying to create score
+  // let score = 0;
+  let scoreArray = [];
+
+  selectStock.map((stock) => scoreArray.push(([parseFloat(stock.performance).toFixed(2)])));
+  console.log("this is the score array:" + scoreArray);
+
+
+
+  // const totalScore = array.reduce(function (accumulator, scoreArray) {
+  //   return scoreArray
+  // }, 0);
+
+  const totalScore = scoreArray.reduce((a, b) => a + b, 0);
+
+
+
+
+  // const totalScore = scoreArray.reduce(
+  //   (previousScore, currentScore, index) => previousScore + currentScore,
+  //   0);
+
+  console.log("This is the total SCOREEEEEEE: " + totalScore);
+
+
+
+
+
 
 
 
@@ -73,6 +123,7 @@ function StockList(props) {
             <>
               <ListGroupItem key={stock} className="justify-content-between">
                 {stock.symbol}
+
                 <Button
                   id="buyBtn"
                   className="float-right"
@@ -82,14 +133,45 @@ function StockList(props) {
                 >
                   Buy
                 </Button>
+
+                <Button key={stock} className="float-right" id="infoBtn" outline color="secondary" onClick={toggle}>Info</Button>
+                <Modal key={stock} isOpen={modal} toggle={toggle} >
+                  <ModalHeader key={stock} toggle={toggle}>Information</ModalHeader>
+                  <ModalBody key={stock}>
+                    {stock.symbol}
+                    <br></br>
+                    <br></br>
+                    {stock.description}
+                    <br></br>
+                    <br></br>
+                      Price: ${stock.historical[0].open}
+                  </ModalBody>
+                </Modal>
+
+
               </ListGroupItem>
             </>
           ))}
         </ListGroup>
       </Col>
-      <Button id="submitBtn" onClick={submitStocks} className="float" outline color="success">Submit</Button>
-      <Button id="resetBtn" onClick={clearStocks} className="float"
-        outline color="secondary">Reset</Button>
+      <Col>
+        <Row>
+          <Col>
+            <Button id="resetBtn2" onClick={clearStocks} className="float"
+              outline color="secondary">Reset</Button>
+          </Col>
+          <Col>
+            <Button id="submitBtn2" onClick={submitStocks} className="float" outline color="success">Submit</Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <div id="scoreBadgeDiv">
+              <ScoreBadge scores={scoreArray}></ScoreBadge>
+            </div>
+          </Col>
+        </Row>
+      </Col>
     </>
   );
 

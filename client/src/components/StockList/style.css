@@ -1,5 +1,5 @@
 .scrollable {
-height: 72vh;
+height: 50vh;
 overflow: scroll;
 }
 
@@ -28,19 +28,30 @@ margin-left: 2px;
 width: 50px;
 }
 
+#infoBtn{
+    font-size: 12px;
+    margin-left: 2px;
+    width: 50px;
+}
+    
 
-#resetBtn{
-    margin: 2px;
-    position: absolute;
-    left: 0%;
-    -ms-transform: translate(50%);
-  transform: translate(50%);
-  }
 
-  #submitBtn{
-    margin: 2px;
-    position: absolute;
-    right: 30%;
-    -ms-transform: translate(50%);
-    transform: translate(50%);
-  }
+/* #resetBtn{
+margin: 2px;
+position: absolute;
+left: 0%;
+-ms-transform: translate(50%);
+transform: translate(50%);
+}
+
+#submitBtn{
+margin: 2px;
+position: absolute;
+right: 30%;
+-ms-transform: translate(50%);
+transform: translate(50%);
+} */
+
+#scoreBadgeDiv {
+    margin-top: 5px;
+}
