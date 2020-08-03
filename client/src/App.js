@@ -28,12 +28,12 @@ function App() {
           <Route exact path="/signup">
             <Signup />
           </Route>
-//     wubUpdates
+
           <Route exact path="/learn">
             <Education />
+          </Route>
           <Route>
             <NoMatch />
-// master
           </Route>
         </Switch>
       </div>
