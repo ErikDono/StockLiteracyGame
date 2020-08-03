@@ -6,8 +6,8 @@ function EduCard(props) {
     return (
         <div className="card-container">
             <a href={props.url} target="_blank" className="row" rel="noopener noreferrer">
-                <Card className="card col" body inverse style={{ backgroundColor: '#333' }}>
-                    <CardTitle className="card-title"> {props.title}</CardTitle>
+                <Card className="eduCard col" body inverse style={{ backgroundColor: '#333' }}>
+                    <CardTitle className="eduCard-title"> {props.title}</CardTitle>
                 </Card></a>
         </div>
     )

@@ -80,7 +80,7 @@ function StockList(props) {
       .then((res) => console.log(res.data));
   }
 
-//  wubUpdates
+  //  wubUpdates
   const populatedStocks = (event) => {
     event.preventDefault();
     API.getPopulated()
@@ -136,10 +136,8 @@ function StockList(props) {
                   active={selectStock.includes(stock)}
                 >
                   Buy
-
               </Button>
 
-                </Button>
 
                 <Button key={stock} className="float-right" id="infoBtn" outline color="secondary" onClick={toggle}>Info</Button>
                 <Modal key={stock} isOpen={modal} toggle={toggle} >
@@ -172,7 +170,7 @@ function StockList(props) {
           <Col>
             <Button id="submitBtn2" onClick={submitStocks} className="float" outline color="success">Submit</Button>
           </Col>
-<Col>
+          <Col>
             <Button onClick={populatedStocks}>Populate</Button>
           </Col>
         </Row>
