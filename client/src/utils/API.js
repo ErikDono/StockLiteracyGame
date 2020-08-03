@@ -33,6 +33,14 @@ export default {
 
   resetStocks: function () {
     return axios.put("/api/stocks/sell");
+  },
+
+  getLessons: function () {
+    return axios.get("/api/learn");
+  },
+
+  getPopulated: function () {
+    return axios.get("/api/populated");
   }
 
   // // Deletes the book with the given id

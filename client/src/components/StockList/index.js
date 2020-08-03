@@ -47,8 +47,6 @@ function StockList(props) {
       .then((res) => console.log(res.data));
   }
 
-
-
   const clearStocks = (event) => {
     event.preventDefault();
     setSelectStock([]);
@@ -57,6 +55,11 @@ function StockList(props) {
       .then((res) => console.log(res.data));
   }
 
+  const populatedStocks = (event) => {
+    event.preventDefault();
+    API.getPopulated()
+      .then((res) => console.log(res.data));
+  }
 
   return (
     <>
@@ -76,6 +79,7 @@ function StockList(props) {
                 >
                   Buy
               </Button>
+
               </ListGroupItem>
             </>
           ))}
@@ -83,6 +87,7 @@ function StockList(props) {
       </Col>
       <Button onClick={submitStocks}>Submit</Button>
       <Button onClick={clearStocks}>Resest</Button>
+      <Button onClick={populatedStocks}>Populate</Button>
     </>
   );
 

@@ -10,6 +10,8 @@ import Signup from "./components/SignupForm";
 // Jason's edits for now: comment out all of returned JSX, render page 'Main' components working on
 // import them here:
 import Dashboard from "./pages/Dashboard";
+import Education from "./pages/Education";
+import './App.css';
 
 function App() {
 
@@ -27,6 +29,9 @@ function App() {
           </Route>
           <Route exact path="/signup">
             <Signup />
+          </Route>
+          <Route exact path="/learn">
+            <Education />
           </Route>
         </Switch>
       </div>
