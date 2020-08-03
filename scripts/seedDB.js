@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const db = require("../models");
 const dataSeed = require("./stockSeed");
+const lessons = require("./lessonsSeed");
 
 
 mongoose.connect(
@@ -21,6 +22,18 @@ const transformedStocks = dataSeed.map((ds) => {
 db.Stock
     .remove({})
     .then(() => db.Stock.collection.insertMany(transformedStocks))
+    .then(data => {
+        console.log(data.result.n + " records inserted!");
+        process.exit(0);
+    })
+    .catch(err => {
+        console.error(err);
+        process.exit(1);
+    });
+
+db.Lesson
+    .remove({})
+    .then(() => db.Lesson.collection.insertMany(lessons))
     .then(data => {
         console.log(data.result.n + " records inserted!");
         process.exit(0);

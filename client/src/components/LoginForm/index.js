@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import API from '../../utils/API'
+import API from '../../utils/API';
+import { Link } from 'react-router-dom';
 import {
     Container, Col, Form,
     FormGroup, Label, Input,
@@ -75,6 +76,7 @@ class Login extends Component {
                         </FormGroup>
                     </Col>
                     <Button onClick={this.handleClickSubmit}>Submit</Button>
+                    <p>Not a member? <Link to="/signup"><span aria-hidden="true"></span> Signup here</Link></p>
                 </Form>
             </Container>
         );

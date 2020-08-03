@@ -1,4 +1,5 @@
 module.exports = {
   Stock: require("./Stock"),
-  User: require("./User")
+  User: require("./User"),
+  Lesson: require("./Lesson")
 };

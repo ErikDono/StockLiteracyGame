@@ -50,6 +50,18 @@ router.post('/signup', function (req, res) {
     }
 });
 
+// This populate works but it is populating users instead of stocks (needs more looking into)
+
+router.get("/populated", (req, res) => {
+    User.find({ id: req.body._id })
+        .populate("stocks")
+        .then(dbPopulated => {
+            res.json(dbPopulated);
+        })
+        .catch(err => {
+            res.json(err);
+        });
+});
 
 
 module.exports = router;

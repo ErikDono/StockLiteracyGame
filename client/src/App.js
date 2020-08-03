@@ -9,6 +9,8 @@ import NoMatch from "./pages/NoMatch";
 // Jason's edits for now: comment out all of returned JSX, render page 'Main' components working on
 // import them here:
 import Dashboard from "./pages/Dashboard";
+import Education from "./pages/Education";
+import './App.css';
 
 function App() {
 
@@ -26,8 +28,12 @@ function App() {
           <Route exact path="/signup">
             <Signup />
           </Route>
+//     wubUpdates
+          <Route exact path="/learn">
+            <Education />
           <Route>
             <NoMatch />
+// master
           </Route>
         </Switch>
       </div>

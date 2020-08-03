@@ -7,15 +7,20 @@ router.route("/")
   .get(stockController.findAll)
   .post(stockController.add)
 
-// Matches with "/api/stocks/sell/:id"
+// Matches with "/api/stocks/sell"
 router
   .route("/sell")
   .put(userController.sell)
 
-// Matches with "/api/stocks/buy/:id"
+// Matches with "/api/stocks/buy"
 router
   .route("/buy")
   .put(userController.update)
+
+
+// router
+//   .route("/populated")
+//   .get(stockController.populate)
 
 
 module.exports = router;

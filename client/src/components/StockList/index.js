@@ -72,8 +72,6 @@ function StockList(props) {
       .then((res) => console.log(res.data));
   }
 
-
-
   const clearStocks = (event) => {
     event.preventDefault();
     setSelectStock([]);
@@ -82,6 +80,12 @@ function StockList(props) {
       .then((res) => console.log(res.data));
   }
 
+//  wubUpdates
+  const populatedStocks = (event) => {
+    event.preventDefault();
+    API.getPopulated()
+      .then((res) => console.log(res.data));
+  }
   // Jason trying to create score
   // let score = 0;
   let scoreArray = [];
@@ -132,6 +136,9 @@ function StockList(props) {
                   active={selectStock.includes(stock)}
                 >
                   Buy
+
+              </Button>
+
                 </Button>
 
                 <Button key={stock} className="float-right" id="infoBtn" outline color="secondary" onClick={toggle}>Info</Button>
@@ -154,6 +161,8 @@ function StockList(props) {
           ))}
         </ListGroup>
       </Col>
+
+
       <Col>
         <Row>
           <Col>
@@ -163,6 +172,9 @@ function StockList(props) {
           <Col>
             <Button id="submitBtn2" onClick={submitStocks} className="float" outline color="success">Submit</Button>
           </Col>
+<Col>
+            <Button onClick={populatedStocks}>Populate</Button>
+          </Col>
         </Row>
         <Row>
           <Col>
@@ -171,7 +183,9 @@ function StockList(props) {
             </div>
           </Col>
         </Row>
+
       </Col>
+
     </>
   );
 
