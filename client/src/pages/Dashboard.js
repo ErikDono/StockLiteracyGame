@@ -3,6 +3,7 @@ import Nav from "../components/Nav";
 import { Col, Row, Container } from "../components/Grid";
 import API from "../utils/API";
 
+
 // import my new components:
 import StockList from "../components/StockList";
 import Card1 from "../components/Card1";
@@ -22,10 +23,12 @@ class Dashboard extends Component {
             .catch(err => console.log(err));
     };
 
-    // setUserStocks = event => {
-
-    //     const value = event.target._id;
-    //     const id =  
+    // Jason - trying to set userstocks performance in NavBar
+    // setUserStocks = (event) => {
+    //     event.preventDefault();
+    //     API.getUserStocks()
+    //         .then(res => this.setState({ userStocks: res.data }))
+    //         .catch(err => console.log(err));
     // };
 
 

@@ -3,7 +3,7 @@ const LoginRoute = require("./users");
 const stockRoute = require('./stocks');
 const lessonRoute = require('./lesson');
 
-// Book routes
+//routes
 router.use("/", LoginRoute);
 router.use('/stocks', stockRoute);
 router.use("/", lessonRoute)

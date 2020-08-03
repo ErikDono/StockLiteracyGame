@@ -17,8 +17,10 @@ router
   .route("/buy")
   .put(userController.update)
 
+
 // router
 //   .route("/populated")
 //   .get(stockController.populate)
+
 
 module.exports = router;

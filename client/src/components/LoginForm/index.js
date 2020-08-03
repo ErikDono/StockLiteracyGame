@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom';
 import {
     Container, Col, Form,
     FormGroup, Label, Input,
-    Button,
+    Button
 } from 'reactstrap';
+import "./style.css";
+
 
 class Login extends Component {
     state = {
@@ -28,9 +30,6 @@ class Login extends Component {
             console.log(res);
             if (!res.data.errmsg) {
                 console.log('successful sign-in')
-                // this.setState({ //redirect to welcome page
-                //     redirectTo: '/stocks'
-                // })
                 window.location = "/dashboard"
             } else {
                 console.log('username already taken')
@@ -38,12 +37,17 @@ class Login extends Component {
         }).catch(error => {
             console.log('login error: ')
             console.log(error)
+            alert("Incorrect log-in credentials. Try again or sign up, if you have not yet.")
         })
     }
+
+
     render() {
+
         return (
-            <Container className="App">
-                <h2>Sign In</h2>
+            <Container id="login" className="App">
+                <h2>Log In</h2>
+                <br></br>
                 <Form className="form">
                     <Col>
                         <FormGroup>
@@ -80,3 +84,5 @@ class Login extends Component {
 }
 
 export default Login;
+
+
