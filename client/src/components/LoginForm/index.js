@@ -10,6 +10,7 @@ import "./style.css";
 
 
 class Login extends Component {
+
     state = {
         username: "",
         password: "",
@@ -30,6 +31,7 @@ class Login extends Component {
             console.log(res);
             if (!res.data.errmsg) {
                 console.log('successful sign-in')
+                this.props.setUser(res.data.user)
                 window.location = "/dashboard"
             } else {
                 console.log('username already taken')

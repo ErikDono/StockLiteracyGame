@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./components/LoginForm";
 import Signup from "./components/SignupForm";
@@ -13,17 +13,17 @@ import Education from "./pages/Education";
 import './App.css';
 
 function App() {
-
+  const [user, setUser] = useState(null)
 
   return (
     <Router>
       <div>
         <Switch>
           <Route exact path={["/", "/login"]}>
-            <Login />
+            <Login setUser={setUser} />
           </Route>
           <Route exact path="/dashboard">
-            <Dashboard />
+            <Dashboard user={user} />
           </Route>
           <Route exact path="/signup">
             <Signup />

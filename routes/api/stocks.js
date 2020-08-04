@@ -12,11 +12,15 @@ router
   .route("/sell")
   .put(userController.sell)
 
-// Matches with "/api/stocks/buy"
+// Matches with "/api/stocks/buy" for submit stocks
 router
   .route("/buy")
   .put(userController.update)
 
+// to buy buy id??
+// router
+//   .route("/buy/:id")
+//   .put(userController.update)
 
 // router
 //   .route("/populated")
