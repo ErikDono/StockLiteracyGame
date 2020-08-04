@@ -6,7 +6,14 @@ var LocalStrategy = require("passport-local").Strategy;
 
 router.post('/login', passport.authenticate("local"), function (req, res) {
     console.log("Yay! You are logged in");
-    res.status(200).json({ sucess: true, msg: "Successfully loggen in!" })
+    const user = {
+        id: req.user._id,
+        username: req.user.username,
+        score: req.user.score,
+        stocks: req.user.stocks
+    }
+    console.log(user)
+    res.status(200).json({ sucess: true, msg: "Successfully loggen in!", user: user })
     // User.findOne({
     //     username: req.body.username
     // }, function (err, user) {
@@ -53,9 +60,11 @@ router.post('/signup', function (req, res) {
 // This populate works but it is populating users instead of stocks (needs more looking into)
 
 router.get("/populated", (req, res) => {
-    User.find({ id: req.body._id })
+    console.log("Populated route")
+    User.find({ _id: req.user._id })
         .populate("stocks")
         .then(dbPopulated => {
+            console.log(dbPopulated)
             res.json(dbPopulated);
         })
         .catch(err => {

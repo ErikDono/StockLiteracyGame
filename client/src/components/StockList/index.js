@@ -67,9 +67,20 @@ function StockList(props) {
   // Changed to take whole stock object rather than just the object id
   const submitStocks = (event) => {
     event.preventDefault();
-    const stockIds = selectStock.map((stock) => ({ stock }))
-    API.submitStocks(stockIds)
-      .then((res) => console.log(res.data));
+    const stockIds = []
+    selectStock.forEach((stock) => {
+      stockIds.push(stock._id)
+    })
+    API.resetStocks()
+      .then((res) => {
+        console.log(res.data)
+        return API.submitStocks(stockIds)
+      })
+      .then((res) => {
+        console.log(res.data)
+        return API.getPopulated()
+      })
+      .then((res) => console.log(res.data))
   }
 
   const clearStocks = (event) => {
@@ -81,17 +92,17 @@ function StockList(props) {
   }
 
   //  wubUpdates
-  const populatedStocks = (event) => {
-    event.preventDefault();
-    API.getPopulated()
-      .then((res) => console.log(res.data));
-  }
+  // const populatedStocks = (event) => {
+  //   event.preventDefault();
+  //   API.getPopulated()
+  //     .then((res) => console.log(res.data));
+  // }
   // Jason trying to create score
   // let score = 0;
   let scoreArray = [];
 
   selectStock.map((stock) => scoreArray.push(([parseFloat(stock.performance).toFixed(2)])));
-  console.log("this is the score array:" + scoreArray);
+  // console.log("this is the score array:" + scoreArray);
 
 
 
@@ -108,7 +119,7 @@ function StockList(props) {
   //   (previousScore, currentScore, index) => previousScore + currentScore,
   //   0);
 
-  console.log("This is the total SCOREEEEEEE: " + totalScore);
+  // console.log("This is the total SCOREEEEEEE: " + totalScore);
 
 
 
@@ -170,9 +181,9 @@ function StockList(props) {
           <Col>
             <Button id="submitBtn2" onClick={submitStocks} className="float" outline color="success">Submit</Button>
           </Col>
-          <Col>
+          {/* <Col>
             <Button onClick={populatedStocks}>Populate</Button>
-          </Col>
+          </Col> */}
         </Row>
         <Row>
           <Col>

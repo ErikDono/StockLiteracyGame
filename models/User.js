@@ -15,20 +15,20 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    // stocks: [
-    //     {
-    //         type: Schema.Types.ObjectId,
-    //         ref: "Stock"
-    //     }
-    // ],
-
-    // Changed to take whole stock object rather than just the object id
     stocks: [
         {
-            type: Schema.Types.Mixed,
-
+            type: Schema.Types.ObjectId,
+            ref: "Stock"
         }
     ],
+
+    // Changed to take whole stock object rather than just the object id
+    // stocks: [
+    //     {
+    //         type: Schema.Types.Mixed,
+
+    //     }
+    // ],
     score: { type: Number, required: true, default: 0 }
 });
 
