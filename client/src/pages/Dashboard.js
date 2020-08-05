@@ -43,6 +43,7 @@ class Dashboard extends Component {
                         </Col>
                         <Col size="lg-9 md-12 sm-12 xs-12">
                             <Card1 />
+                            
                             <Card2 />
                         </Col>
                     </Row>
