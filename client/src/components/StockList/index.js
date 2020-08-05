@@ -10,15 +10,18 @@ import {
   ModalBody,
   Jumbotron,
   Container,
+
 } from "reactstrap";
 import "./style.css";
 import API from "../../utils/API";
 import ScoreBadge from "../ScoreBadge";
 import Card2 from "../Card2";
 import { Bar, Line, Pie } from "react-chartjs-2";
+
 function StockList(props) {
   const [selectStock, setSelectStock] = useState([]);
   const [chartData, setChartData] = useState([]);
+
   const onCheckboxBtnClick = (selected) => {
     const index = selectStock.indexOf(selected);
     if (index < 0) {
@@ -28,15 +31,19 @@ function StockList(props) {
     }
     setSelectStock([...selectStock]);
   };
-  // modal stuff
+  
   // const {
   //  className
   // } = props;
+
   const [modal, setModal] = useState(false);
   const toggle = (props) => {
     console.log("TOGGLE:" + props);
     setModal(!modal);
   };
+
+
+
   // CSS for shadow effect on card
   const well = {
     boxShadow: "3px 3px 3px #9E9E9E",
@@ -55,7 +62,7 @@ function StockList(props) {
     textStyle: "italic",
     backgroundColor: "opaque",
   };
-  // const chartData = []
+
   // Changed to take whole stock object rather than just the object id
   const submitStocks = (event) => {
     event.preventDefault();
@@ -85,22 +92,25 @@ function StockList(props) {
         setChartData(newChartData);
       });
   };
+
   const clearStocks = (event) => {
     event.preventDefault();
     setSelectStock([]);
+
     API.resetStocks().then((res) => {
       console.log(res.data);
     });
   };
-  // wubUpdates
+
   // const populatedStocks = (event) => {
   //  event.preventDefault();
   //  API.getPopulated()
   //   .then((res) => console.log(res.data));
   // }
   // Jason trying to create score
-  // let score = 0;
+
   let scoreArray = [];
+  
   selectStock.map((stock) =>
     scoreArray.push([parseFloat(stock.performance).toFixed(2)])
   );
@@ -113,6 +123,8 @@ function StockList(props) {
   //  (previousScore, currentScore, index) => previousScore + currentScore,
   //  0);
   // console.log("This is the total SCOREEEEEEE: " + totalScore);
+
+
   return (
     <Container>
       <h2 style={listHeader}>STOCK LIST</h2>
@@ -223,7 +235,9 @@ function StockList(props) {
               color="secondary"
             >
               Reset
+
       </Button>
+
           </Col>
           <Col>
             <Button
@@ -234,7 +248,9 @@ function StockList(props) {
               color="success"
             >
               Submit
+
       </Button>
+
           </Col>
           {/* <Col>
       <Button onClick={populatedStocks}>Populate</Button>
@@ -250,9 +266,11 @@ function StockList(props) {
       </Col>
       <Col>
         {/* <Card2> */}
+
         {/* </Card2> */}
       </Col>
     </Container>
   );
 }
 export default StockList;
+

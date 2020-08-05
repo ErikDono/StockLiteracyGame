@@ -23,14 +23,6 @@ class Dashboard extends Component {
             .catch(err => console.log(err));
     };
 
-    // Jason - trying to set userstocks performance in NavBar
-    // setUserStocks = (event) => {
-    //     event.preventDefault();
-    //     API.getUserStocks()
-    //         .then(res => this.setState({ userStocks: res.data }))
-    //         .catch(err => console.log(err));
-    // };
-
 
     render() {
         return (
@@ -43,6 +35,7 @@ class Dashboard extends Component {
                         </Col>
                         <Col size="lg-9 md-12 sm-12 xs-12">
                             <Card1 />
+
                             <Card2 />
                         </Col>
                     </Row>
