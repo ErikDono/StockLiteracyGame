@@ -32,16 +32,19 @@ function StockList(props) {
 
   // modal stuff
 
+  // modal stuff currently not functioning properly
   // const {
   //   className
   // } = props;
 
-  const [modal, setModal] = useState(false);
 
-  const toggle = (props) => {
-    console.log("TOGGLE:" + props);
-    setModal(!modal);
-  };
+  // const [modal, setModal] = useState(false);
+
+  // const toggle = (props) => {
+  //   console.log("TOGGLE:" + props);
+  //   setModal(!modal);
+  // };
+
 
   // CSS for shadow effect on card
   const well = {
@@ -112,25 +115,23 @@ function StockList(props) {
   //     .then((res) => console.log(res.data));
   // }
   // Jason trying to create score
-  // let score = 0;
+
   let scoreArray = [];
 
-  selectStock.map((stock) =>
-    scoreArray.push([parseFloat(stock.performance).toFixed(2)])
-  );
-  // console.log("this is the score array:" + scoreArray);
+  selectStock.map((stock) => scoreArray.push(([parseFloat(stock.performance).toFixed(2)])));
+  console.log("this is the score array:" + scoreArray);
 
-  // const totalScore = array.reduce(function (accumulator, scoreArray) {
-  //   return scoreArray
-  // }, 0);
 
-  const totalScore = scoreArray.reduce((a, b) => a + b, 0);
+  const totalScore = scoreArray.reduce((a, b) => a - (-b), 0);
 
-  // const totalScore = scoreArray.reduce(
-  //   (previousScore, currentScore, index) => previousScore + currentScore,
-  //   0);
+  console.log("This is the total SCOREEEEEEE: " + "$" + parseFloat(totalScore).toFixed(2));
 
-  // console.log("This is the total SCOREEEEEEE: " + totalScore);
+
+
+
+
+
+
 
   return (
     <>
@@ -138,9 +139,9 @@ function StockList(props) {
       <p style={listHeaderP}>Do your research, pick 5, and submit!</p>
       <Col className="scrollable">
         <ListGroup className="flex-column nav" style={well}>
-          {props.stocks.map((stock) => (
+          {props.stocks.map((stock, i) => (
             <>
-              <ListGroupItem key={stock} className="justify-content-between">
+              <ListGroupItem key={i + 1} className="justify-content-between">
                 {stock.symbol}
 
                 <Button
@@ -154,21 +155,12 @@ function StockList(props) {
                   Buy
                 </Button>
 
-                <Button
-                  key={stock}
-                  className="float-right"
-                  id="infoBtn"
-                  outline
-                  color="secondary"
-                  onClick={toggle}
-                >
-                  Info
-                </Button>
-                <Modal key={stock} isOpen={modal} toggle={toggle}>
-                  <ModalHeader key={stock} toggle={toggle}>
-                    Information
-                  </ModalHeader>
-                  <ModalBody key={stock}>
+                {/* 
+
+                <Button className="float-right" id="infoBtn" outline color="secondary" onClick={toggle}>Info</Button>
+                <Modal isOpen={modal} toggle={toggle} >
+                  <ModalHeader toggle={toggle}>Information</ModalHeader>
+                  <ModalBody  >
                     {stock.symbol}
                     <br></br>
                     <br></br>
@@ -178,7 +170,11 @@ function StockList(props) {
                     Price: ${stock.historical[0].open}
                   </ModalBody>
                 </Modal>
+                </Modal> */}
+
+
               </ListGroupItem>
+
             </>
           ))}
         </ListGroup>

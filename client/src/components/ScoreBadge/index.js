@@ -24,14 +24,14 @@ function ScoreBadge(props) {
         (prevValue, currentValue) => prevValue - (-currentValue),
         0);
 
-    console.log("This is the total Score from badge component:" + totalScore);
+    console.log("This is the total Score from badge component:" + "$" + totalScore);
 
 
     return (
 
         <>
             {props.scores.map((score, i) => (
-                <Badge id="scoreBadge" key={score.id} pill>Stock {[i + 1]} Performance: ${parseFloat(score).toFixed(2)}</Badge>
+                <Badge id="scoreBadge" key={i + 1} pill>Stock {[i + 1]} Performance: ${parseFloat(score).toFixed(2)}</Badge>
             ))}
         </>
     );
